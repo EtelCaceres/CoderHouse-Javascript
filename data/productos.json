@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nombre": "Cactus",
+        "precio": 1200,
+        "imagen": "img/cactus.jpg"
+    },
+    {
+        "id": 2,
+        "nombre": "Suculenta",
+        "precio": 1000,
+        "imagen": "img/suculenta.jpg"
+    },
+    {
+        "id": 3,
+        "nombre": "Potus",
+        "precio": 1500,
+        "imagen": "img/potus.jpg"
+    },
+    {
+        "id": 4,
+        "nombre": "Lavanda",
+        "precio": 1300,
+        "imagen": "img/lavanda.jpg"
+    }
+]
