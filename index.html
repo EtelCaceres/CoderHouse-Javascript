@@ -4,13 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vivero EtelBet</title>
-  <link rel="stylesheet" href="style.css" />
+ <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
   <div class="contenedor">
     <h1>Bienvenidos al Vivero EtelBet</h1>
 
-    <section id="cards-container"></section>
+    <!-- Contenedor con fondo para los productos -->
+    <div class="fondo-productos">
+      <section id="cards-container"></section>
+    </div>
 
     <section class="carrito">
       <h2>Carrito de compras</h2>
@@ -18,7 +22,8 @@
     </section>
   </div>
 
-  <script defer src="script.js"></script>
-</body>
+<script defer src="./js/productos.js"></script>
+<script defer src="./js/carrito.js"></script>
 
+</body>
 </html>
