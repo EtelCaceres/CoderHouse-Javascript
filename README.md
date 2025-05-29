@@ -22,7 +22,7 @@ Este proyecto es un mini ecommerce hecho en JavaScript para CoderHouse, donde se
 - SweetAlert2 (librería externa)
 
 ## 📁 Estructura del proyecto
-
+```
 CoderHouse-Javascript/
 ├── index.html
 ├── css/
@@ -35,6 +35,7 @@ CoderHouse-Javascript/
 ├── img/
 │ └── cactus.jpg, lavanda.jpg, potus.jpg, etc.
 ├── README.md
+```
 
 ## 📦 Cómo ejecutar el proyecto
 
