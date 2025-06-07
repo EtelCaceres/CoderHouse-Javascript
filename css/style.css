@@ -12,40 +12,12 @@ body {
   overflow-x: hidden;
 }
 
-
-
-
-
-
 h1, h2 {
   text-align: center;
-  color:white;
+  color: white;
   border-bottom: 4px solid white;
   display: inline-block;
   padding-bottom: 10px;
-}
-
-.card {
-  border: 1px solid #f17c7c;
-  border-radius: 5px;
-  background-color: rgb(219, 73, 73);
-  padding: 10px;
-  margin: 10px;
-  display: inline-block;
-  width: 200px;
-  vertical-align: top;
-  text-align: center;
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-}
-
-button {
-  padding: 5px 10px;
-  margin-top: 10px;
-  cursor: pointer;
 }
 
 .contenedor {
@@ -64,7 +36,7 @@ button {
 }
 
 .card {
-  background-color: rgb(255, 240, 240); /* fondo blanco con opacidad para ver el fondo detrás */
+  background-color: rgb(255, 240, 240);
   border: 1px solid #ab1414;
   border-radius: 20px;
   width: 200px;
@@ -108,10 +80,51 @@ button {
 
 /* 👉 Fondo para las tarjetas de productos */
 .fondo-productos {
-  background-image: rgba(231, 88, 88, 0.9); /* Cambiá el nombre si tu imagen se llama diferente */
+  background-image: rgba(231, 88, 88, 0.9);
   background-size: cover;
   background-position: center;
   padding: 40px;
   border-radius: 15px;
 }
 
+/* 🔢 Estilos para botones de cantidad + / - */
+.botones-cantidad {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.btn-sumar,
+.btn-restar {
+  background-color: #b02a2a;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-sumar:hover,
+.btn-restar:hover {
+  background-color: #8b1c1c;
+}
+
+/* 🔙 Botón para volver desde el carrito */
+.boton-volver {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 8px 16px;
+  background-color: #b02a2a;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.boton-volver:hover {
+  background-color: #8b1c1c;
+}

@@ -1,7 +1,13 @@
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 function agregarAlCarrito(producto) {
-    carrito.push(producto);
+    const productoEnCarrito = carrito.find(item => item.id === producto.id);
+    if (productoEnCarrito) {
+        productoEnCarrito.cantidad += 1;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+
     guardarCarrito();
     mostrarCarrito();
 }
@@ -22,12 +28,26 @@ function mostrarCarrito() {
         item.innerHTML = `
             <img src="${producto.imagen}" alt="${producto.nombre}">
             <h3>${producto.nombre}</h3>
-            <p>$${producto.precio}</p>
+            <p>Precio unitario: $${producto.precio}</p>
+            <p>Cantidad: ${producto.cantidad}</p>
+            <p>Subtotal: $${producto.precio * producto.cantidad}</p>
+            <div class="botones-cantidad">
+                <button class="btn-restar" data-id="${producto.id}">-</button>
+                <button class="btn-sumar" data-id="${producto.id}">+</button>
+            </div>
             <button class="boton-eliminar" id="eliminar-${indice}">Eliminar</button>
         `;
 
         contenedor.appendChild(item);
 
+        // Botones + y -
+        document.querySelector(`.btn-sumar[data-id="${producto.id}"]`)
+            .addEventListener("click", () => cambiarCantidad(producto.id, 1));
+
+        document.querySelector(`.btn-restar[data-id="${producto.id}"]`)
+            .addEventListener("click", () => cambiarCantidad(producto.id, -1));
+
+        // Botón eliminar
         const botonEliminar = document.getElementById(`eliminar-${indice}`);
         botonEliminar.addEventListener("click", () => eliminarProductoDelCarrito(indice));
     });
@@ -49,6 +69,20 @@ function mostrarCarrito() {
     botonFinalizar.classList.add("boton-finalizar");
     botonFinalizar.addEventListener("click", finalizarCompra);
     contenedor.appendChild(botonFinalizar);
+}
+
+function cambiarCantidad(id, cambio) {
+    const producto = carrito.find(p => p.id === id);
+    if (!producto) return;
+
+    producto.cantidad += cambio;
+
+    if (producto.cantidad <= 0) {
+        carrito = carrito.filter(p => p.id !== id);
+    }
+
+    guardarCarrito();
+    mostrarCarrito();
 }
 
 function eliminarProductoDelCarrito(indice) {
@@ -85,7 +119,7 @@ function finalizarCompra() {
 }
 
 function calcularTotal() {
-    return carrito.reduce((total, producto) => total + producto.precio, 0);
+    return carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
 }
 
 function guardarCarrito() {
