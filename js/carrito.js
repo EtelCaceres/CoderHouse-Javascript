@@ -20,11 +20,11 @@ function mostrarCarrito() {
         item.classList.add("card");
 
         item.innerHTML = `
-    <img src="${producto.imagen}" alt="${producto.nombre}">
-    <h3>${producto.nombre}</h3>
-    <p>$${producto.precio}</p>
-    <button class="boton-eliminar" id="eliminar-${indice}">Eliminar</button>
-    `;
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>$${producto.precio}</p>
+            <button class="boton-eliminar" id="eliminar-${indice}">Eliminar</button>
+        `;
 
         contenedor.appendChild(item);
 
@@ -83,7 +83,6 @@ function finalizarCompra() {
 
     vaciarCarrito();
 }
-
 
 function calcularTotal() {
     return carrito.reduce((total, producto) => total + producto.precio, 0);

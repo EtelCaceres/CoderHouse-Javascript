@@ -9,11 +9,11 @@ function mostrarProductosEnPantalla(productos) {
         tarjeta.classList.add("card");
 
         tarjeta.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}">
-      <h3>${producto.nombre}</h3>
-      <p>Precio: $${producto.precio}</p>
-      <button class="boton-agregar" id="boton-${producto.id}">Agregar al carrito</button>
-    `;
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>Precio: $${producto.precio}</p>
+            <button class="boton-agregar" id="boton-${producto.id}">Agregar al carrito</button>
+        `;
 
         contenedor.appendChild(tarjeta);
 
@@ -32,9 +32,14 @@ async function cargarProductos() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    cargarProductos();
-});
+cargarProductos();
+
+function agregarAlCarrito(producto) {
+    carrito.push(producto);
+    guardarCarrito();
+    mostrarCarrito();
+}
+
 
 function agregarAlCarrito(producto) {
     carrito.push(producto);
