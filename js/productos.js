@@ -46,3 +46,13 @@ function agregarAlCarrito(producto) {
     guardarCarrito();
     mostrarCarrito();
 }
+
+Swal.fire({
+        toast: true,
+        position: 'top-end',
+        icon: 'success',
+        title: `${producto.nombre} añadido al carrito`,
+        showConfirmButton: false,
+        timer: 1500,
+        timerProgressBar: true
+    });
