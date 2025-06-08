@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Checkout - Vivero EtelBet</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-contenido">
+      <a href="index.html" class="logo">🌱 Vivero EtelBet</a>
+      <a href="carrito.html" class="nav-carrito">🛒 Carrito</a>
+    </div>
+  </nav>
+
+  <div class="contenedor">
+    <h1>Finalizar compra</h1>
+
+    <!-- Formulario de datos -->
+    <form id="checkout-form">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" required />
+
+      <label for="direccion">Dirección de envío</label>
+      <input type="text" id="direccion" required />
+
+      <label for="telefono">Teléfono</label>
+      <input type="text" id="telefono" required />
+
+      <label for="dni">DNI</label>
+      <input type="text" id="dni" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required />
+
+      <label for="metodo-pago">Método de pago</label>
+      <select id="metodo-pago" required>
+        <option value="">Seleccioná un método de pago</option>
+        <option value="Tarjeta de crédito">Tarjeta de crédito</option>
+        <option value="Tarjeta de débito">Tarjeta de débito</option>
+      </select>
+
+      <label for="tarjeta">N° de tarjeta (simulado)</label>
+      <input type="text" id="tarjeta" required />
+
+      <button type="submit" class="boton-finalizar">Generar resumen</button>
+    </form>
+
+    <!-- Resumen de compra -->
+    <div id="resumen-container"></div>
+
+    <a href="index.html" class="boton-volver">← Volver al inicio</a>
+  </div>
+
+  <script>
+    const form = document.getElementById("checkout-form");
+    const resumenContainer = document.getElementById("resumen-container");
+    const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+    function validarCampos() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const direccion = document.getElementById("direccion").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const dni = document.getElementById("dni").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const tarjeta = document.getElementById("tarjeta").value.trim();
+      const metodoPago = document.getElementById("metodo-pago").value;
+
+      const soloTexto = /^[a-zA-Z\s]+$/;
+      const soloNumeros = /^[0-9]+$/;
+
+      if (!soloTexto.test(nombre)) return alert("El nombre no puede contener números.");
+      if (!soloNumeros.test(telefono)) return alert("El teléfono debe contener solo números.");
+      if (!soloNumeros.test(dni)) return alert("El DNI debe contener solo números.");
+      if (!soloNumeros.test(tarjeta)) return alert("El número de tarjeta debe contener solo números.");
+      if (metodoPago === "") return alert("Seleccioná un método de pago");
+
+      return { nombre, direccion, telefono, dni, email, tarjeta, metodoPago };
+    }
+
+    function calcularTotal() {
+      return carrito.reduce((total, producto) => total + producto.precio * producto.cantidad, 0);
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const datos = validarCampos();
+      if (!datos) return;
+
+      // Generar resumen
+      resumenContainer.innerHTML = `
+        <h2>Resumen de compra</h2>
+        <p><strong>Nombre:</strong> ${datos.nombre}</p>
+        <p><strong>Dirección:</strong> ${datos.direccion}</p>
+        <p><strong>Teléfono:</strong> ${datos.telefono}</p>
+        <p><strong>DNI:</strong> ${datos.dni}</p>
+        <p><strong>Email:</strong> ${datos.email}</p>
+        <p><strong>Método de pago:</strong> ${datos.metodoPago}</p>
+        <hr>
+        <h3>Productos:</h3>
+      `;
+
+      carrito.forEach((p) => {
+        resumenContainer.innerHTML += `
+          <p>${p.nombre} x${p.cantidad} - $${p.precio * p.cantidad}</p>
+        `;
+      });
+
+      resumenContainer.innerHTML += `
+        <p><strong>Total:</strong> $${calcularTotal()}</p>
+        <p>Gracias por tu compra 🌿</p>
+      `;
+
+      // Limpieza
+      form.reset();
+      localStorage.removeItem("carrito");
+    });
+  </script>
+</body>
+
+</html>
+
