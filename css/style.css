@@ -1,3 +1,4 @@
+/* 🌿 Fondo general */
 body {
   margin: 0;
   padding: 0;
@@ -12,6 +13,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Títulos */
 h1, h2 {
   text-align: center;
   color: white;
@@ -20,6 +22,7 @@ h1, h2 {
   padding-bottom: 10px;
 }
 
+/* Contenedor general */
 .contenedor {
   max-width: 900px;
   margin: 0 auto;
@@ -27,6 +30,7 @@ h1, h2 {
   text-align: center;
 }
 
+/* Cards de productos */
 #cards-container {
   display: flex;
   flex-wrap: wrap;
@@ -51,6 +55,7 @@ h1, h2 {
   border-radius: 8px;
 }
 
+/* Botones generales */
 .boton-agregar,
 .boton-eliminar,
 .boton-vaciar,
@@ -73,12 +78,13 @@ h1, h2 {
   background-color: #8b1c1c;
 }
 
+/* Total */
 .texto-total {
   font-size: 1.2em;
   margin-top: 10px;
 }
 
-/* 👉 Fondo para las tarjetas de productos */
+/* Fondo de productos */
 .fondo-productos {
   background-image: rgba(231, 88, 88, 0.9);
   background-size: cover;
@@ -87,12 +93,24 @@ h1, h2 {
   border-radius: 15px;
 }
 
-/* 🔢 Estilos para botones de cantidad + / - */
+/* Botones de cantidad (tarjetas y carrito) */
 .botones-cantidad {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin: 10px 0;
+  align-items: center;
+  margin: 15px 0;
+  gap: 12px;
+}
+
+.input-cantidad {
+  width: 50px;
+  height: 35px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: white;
 }
 
 .btn-sumar,
@@ -100,11 +118,16 @@ h1, h2 {
   background-color: #b02a2a;
   color: white;
   border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .btn-sumar:hover,
@@ -112,7 +135,7 @@ h1, h2 {
   background-color: #8b1c1c;
 }
 
-/* 🔙 Botón para volver desde el carrito */
+/* Botón volver */
 .boton-volver {
   display: inline-block;
   margin-top: 20px;
@@ -127,4 +150,121 @@ h1, h2 {
 
 .boton-volver:hover {
   background-color: #8b1c1c;
+}
+
+/* Formulario de checkout */
+form input,
+form select {
+  display: block;
+  margin: 10px auto;
+  padding: 8px;
+  width: 80%;
+  max-width: 420px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #b02a2a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #8b1c1c;
+}
+
+/* Resumen de compra */
+#resumen-container {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  text-align: left;
+  color:black;
+}
+
+#resumen-container p {
+  margin: 6px 0;
+}
+
+/* Acciones del carrito */
+.acciones-carrito {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #b02a2a;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.navbar-contenido {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.nav-carrito {
+  color: white;
+  background-color: #8b1c1c;
+  padding: 8px 14px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.nav-carrito:hover {
+  background-color: #a72323;
+}
+
+/* Etiquetas del formulario */
+form label {
+  display: block;
+  text-align: left;
+  color: white;
+  font-weight: bold;
+  margin: 10px auto 5px;
+  width: 80%;
+  max-width: 420px;
+}
+
+/* Título del resumen de compra */
+#resumen-container h2 {
+  color: #b02a2a;
+  margin-bottom: 15px;
+}
+
+.mensaje-vacio {
+  color: white; 
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 20px;
 }

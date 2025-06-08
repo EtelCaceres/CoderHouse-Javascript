@@ -5,30 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vivero EtelBet</title>
-  <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="css/style.css" /> 
 </head>
 
 <body>
+  <!-- Navbar -->
+<nav class="navbar">
+  <div class="navbar-contenido">
+    <a href="index.html" class="logo">🌱 Vivero EtelBet</a>
+    <a href="carrito.html" class="nav-carrito">🛒 Carrito</a>
+  </div>
+</nav>
+
+
+  <!-- Botón de carrito arriba a la derecha -->
+  <a href="carrito.html" class="boton-carrito">🛒 Carrito</a>
+
   <div class="contenedor">
     <h1>Bienvenidos al Vivero EtelBet</h1>
 
-    <!-- Contenedor con fondo para los productos -->
+    <!-- Contenedor de productos -->
     <div class="fondo-productos">
       <section id="cards-container"></section>
     </div>
-
-    <section class="carrito">
-      <h2>Carrito de compras</h2>
-      <div id="carrito-container"></div>
-    </section>
   </div>
 
-<script defer src="js/productos.js"></script>
-<script defer src="js/carrito.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-</body>
-
+  <script defer src="js/productos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
