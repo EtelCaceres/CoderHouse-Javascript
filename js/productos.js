@@ -9,18 +9,18 @@ function mostrarProductosEnPantalla(productos) {
         tarjeta.classList.add("card");
 
         tarjeta.innerHTML = `
-      <img src="${producto.imagen}" alt="${producto.nombre}">
-      <h3>${producto.nombre}</h3>
-      <p>Precio: $${producto.precio}</p>
+            <img src="${producto.imagen}" alt="${producto.nombre}">
+            <h3>${producto.nombre}</h3>
+            <p>Precio: $${producto.precio}</p>
 
-      <div class="botones-cantidad">
-        <button class="btn-restar">-</button>
-        <input type="number" class="input-cantidad" value="1" min="1">
-        <button class="btn-sumar">+</button>
-      </div>
+            <div class="botones-cantidad">
+                <button class="btn-restar">-</button>
+                <input type="number" class="input-cantidad" value="1" min="1">
+                <button class="btn-sumar">+</button>
+            </div>
 
-      <button class="boton-agregar" id="boton-${producto.id}">Agregar al carrito</button>
-    `;
+            <button class="boton-agregar" id="boton-${producto.id}">Agregar al carrito</button>
+            `;
 
         contenedor.appendChild(tarjeta);
 
@@ -49,7 +49,7 @@ function mostrarProductosEnPantalla(productos) {
 
 async function cargarProductos() {
     try {
-        const response = await fetch("data/productos.json");
+        const response = await fetch("./data/productos.json");
         listaDeProductos = await response.json();
         mostrarProductosEnPantalla(listaDeProductos);
     } catch (error) {
