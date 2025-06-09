@@ -24,7 +24,6 @@ Este proyecto es un mini ecommerce hecho en JavaScript para CoderHouse, donde se
 ## 📁 Estructura del proyecto
 ```
 CoderHouse-Javascript/
-├── index.html
 ├── css/
 │ └── style.css
 ├── js/
@@ -34,8 +33,13 @@ CoderHouse-Javascript/
 │ └── productos.json
 ├── img/
 │ └── cactus.jpg, lavanda.jpg, potus.jpg, etc.
+├── index.html
+├── carrito.html
+├── checkout.html
 ├── README.md
 ```
+## 🌐 Sitio en línea
+- Este proyecto está disponible en: [GithubPages](https://etelcaceres.github.io/CoderHouse-Javascript/index.html)
 
 ## 📦 Cómo ejecutar el proyecto
 
@@ -44,6 +48,6 @@ CoderHouse-Javascript/
 
 ## 👩‍💻 Autor
 
-Proyecto realizado por **[caceres Etelvina]** para la entrega final del curso de JavaScript en CoderHouse.
+Proyecto realizado por **Caceres Etelvina** para la entrega final del curso de JavaScript en CoderHouse.
 
 
